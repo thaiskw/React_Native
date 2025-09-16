@@ -6,11 +6,15 @@ import flor_de_cerejeira from "./assets/flor-de-cerejeira.png";
 import flor from "./assets/flor.png";
 import lotus from "./assets/lotus.png";
 import rosa from "./assets/rosa.png";
+import girassol from "./assets/girassol.png";
+import florNova from "./assets/flor-nova.png";
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function App() {
   const [imagem1, setImagem1] = useState(aster);
   const [imagem2, setImagem2] = useState(flor_de_cerejeira);
   const [imagem3, setImagem3] = useState(lotus);
+  const [imagem4, setImagem4] = useState(girassol);
 
   const toggleImagem1 = () => {
     setImagem1((prev) => (prev === aster ? desenho_floral : aster));
@@ -24,6 +28,10 @@ export default function App() {
     setImagem3((prev) => (prev === lotus ? rosa : lotus));
   };
 
+  const toggleImagem4 = () => {
+    setImagem4((prev) => (prev === girassol ? florNova : girassol));
+  };
+
 return (
   <View style={styles.principal}>
     {/* Container 1 */}
@@ -31,6 +39,7 @@ return (
       <Text style={styles.texto}>Container 1</Text>
       <Image source={imagem1} style={styles.imagem1} />
       <TouchableOpacity style={styles.botao} onPress={toggleImagem1}>
+        <AntDesign name="check" size={24} color="white" />
         <Text style={styles.textoBotao}>Trocar Imagem 1</Text>
       </TouchableOpacity>
     </View>
@@ -40,6 +49,7 @@ return (
       <Text style={styles.texto}>Container 2</Text>
       <Image source={imagem2} style={styles.imagem2} />
       <TouchableOpacity style={styles.botao} onPress={toggleImagem2}>
+        <AntDesign name="check" size={24} color="white" />
         <Text style={styles.textoBotao}>Trocar Imagem 2</Text>
       </TouchableOpacity>
     </View>
@@ -49,11 +59,23 @@ return (
       <Text style={styles.texto}>Container 3</Text>
       <Image source={imagem3} style={styles.imagem3} />
       <TouchableOpacity style={styles.botao} onPress={toggleImagem3}>
+        <AntDesign name="check" size={24} color="white" />
         <Text style={styles.textoBotao}>Trocar Imagem 3</Text>
+      </TouchableOpacity>
+    </View>
+
+    {/* Container 4 */}
+    <View style={styles.container4}>
+      <Text style={styles.texto}>Container 4</Text>
+      <Image source={imagem4} style={styles.imagem4} />
+      <TouchableOpacity style={styles.botao} onPress={toggleImagem4}>
+        <AntDesign name="check" size={24} color="white" />
+        <Text style={styles.textoBotao}>Trocar Imagem 4</Text>
       </TouchableOpacity>
     </View>
   </View>
 );
+
 }
 const styles = StyleSheet.create({
   principal: {
@@ -66,7 +88,7 @@ const styles = StyleSheet.create({
 
   //troquei o flex pois não estava cabendo a imagem!!!
   container1: {
-    flex: 3,
+    flex: 4,
     backgroundColor: "#FFE0B2",
     margin: 10,
     padding: 15,
@@ -76,7 +98,7 @@ const styles = StyleSheet.create({
   },
 
   container2: {
-    flex: 3,
+    flex: 4,
     backgroundColor: "#C8E6C9",
     margin: 10,
     padding: 15,
@@ -89,7 +111,17 @@ const styles = StyleSheet.create({
     flex: 3,
     backgroundColor: "#BBDEFB",
     margin: 10,
-    padding: 15,
+    padding: 20,
+    borderRadius: 12,
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+
+    container4: {
+    flex: 3,
+    backgroundColor: "#d59ef5ff",
+    margin: 10,
+    padding: 20,
     borderRadius: 12,
     alignItems: "center",
     justifyContent: "space-around",
@@ -103,7 +135,7 @@ const styles = StyleSheet.create({
   },
 
   imagem1: {
-    width: 120,
+    width: 150,
     height: 120,
     borderRadius: 10,
     borderWidth: 2,
@@ -112,22 +144,32 @@ const styles = StyleSheet.create({
 
   imagem2: {
     width: 150,
-    height: 150,
+    height: 120,
     borderRadius: 10,
     borderWidth: 2,
     borderColor: "#555",
   },
 
   imagem3: {
-    width: 180,
-    height: 180,
+    width: 100,
+    height: 80,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "#555",
+  },
+    imagem4: {
+    width: 80,
+    height: 80,
     borderRadius: 10,
     borderWidth: 2,
     borderColor: "#555",
   },
 
   botao: {
-    backgroundColor: "#1976D2",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#543c5aff",
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 8,
@@ -137,5 +179,6 @@ const styles = StyleSheet.create({
   textoBotao: {
     color: "white",
     fontWeight: "bold",
+    marginLeft: 8,
   },
 });
