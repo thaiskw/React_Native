@@ -1,20 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, View, Image, ScrollView } from 'react-native';
 
 export default function Fotos() {
-  const navigation = useNavigation();
+  const fotos = [
+    require('../../../assets/fotos/etec.jpg'),
+    require('../../../assets/fotos/mar.jpg'),
+    require('../../../assets/fotos/ponte.jpg'),
+    require('../../../assets/fotos/ponteComMar.jpg')
+  ];
 
   return (
-    <View style={styles.container}>
-      <FontAwesome name="youtube" size={25} color="#f00" style={{ marginRight: 10 }} />
-      <Text>Página Fotos</Text>
-      <Button title="Voltar para Home" onPress={() => navigation.navigate('Home')} />
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      {fotos.map((img, i) => (
+        <Image key={i} source={img} style={styles.image} />
+      ))}
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' },
+  container: { flexDirection:'row', flexWrap:'wrap', justifyContent:'center', padding:10 },
+  image: { width:150, height:150, margin:5 }
 });
