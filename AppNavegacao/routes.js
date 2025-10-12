@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import Home from './pages/Home';
-import Fotos from './pages/Fotos';
+import Home from './src/pages/Home';
+import Fotos from './src/pages/Fotos';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export default function Routes() {
   return (
