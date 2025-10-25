@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/screens/Home';
 import Sobre from './src/screens/Sobre';
+import Integrantes from './src/screens/Integrantes';
 
 // Cria a pilha de navegação
 const Stack = createNativeStackNavigator();
@@ -20,6 +21,11 @@ export default function App() {
           name="Sobre" 
           component={Sobre} 
           options={{ title: 'Sobre o App' }}
+        />
+        <Stack.Screen 
+          name="Integrantes" 
+          component={Integrantes} 
+          options={{ title: 'Integrantes' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

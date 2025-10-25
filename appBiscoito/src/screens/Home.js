@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function Home({ navigation }) {
 // Estado para a imagem do biscoito
-const [img, setImg] = useState(require('../assets/biscoitoFechado.jpg'));
+const [img, setImg] = useState(require('../assets/biscoitoFechado.jpeg'));
 
 // Estado para o texto da frase
 const [textoFrase, setTextoFrase] = useState('Texto aqui!');
@@ -17,7 +17,20 @@ const [textoFrase, setTextoFrase] = useState('Texto aqui!');
     'Defeitos e virtudes são apenas dois lados da mesma moeda.',
     'A maior de todas as torres começa no solo.',
     'Não há que ser forte. Há que ser flexível.',
-    'Gente boa é gente que faz a diferença na vida da gente.'
+    'Gente boa é gente que faz a diferença na vida da gente.',
+    'Tudo tem seu tempo certo.',
+    'Confie no processo.',
+    'Você é mais forte do que pensa.',
+    'Acredite em dias melhores.',
+    'Pequenos passos, grandes conquistas.',
+    'Seja luz onde for.',
+    'O bem volta, sempre.',
+    'Respira e segue.',
+    'Floresça onde estiver.',
+    'O que é pra ser, encontra um jeito.',
+    'Paz atrai coisa boa.',
+    'Gratidão muda tudo.',
+    'Nada é em vão.'
   ];
   
 
@@ -27,12 +40,16 @@ const [textoFrase, setTextoFrase] = useState('Texto aqui!');
     let numeroAleatorio = Math.floor(Math.random() * frases.length);
 
     // Atualiza a imagem do biscoito para o aberto
-    setImg(require('../assets/biscoitoAberto.jpg'));
+    setImg(require('../assets/biscoitoAberto.jpeg'));
 
     // Atualiza o texto da frase com a frase selecionada
     setTextoFrase(' "' + frases[numeroAleatorio] + '" ');
   }
  
+  function voltarImagem(){
+    setImg(require('../assets/biscoitoFechado.jpeg'));
+    setTextoFrase('Texto aqui!');
+  }
 
   return (
     <View style={estilos.container}>
@@ -40,8 +57,12 @@ const [textoFrase, setTextoFrase] = useState('Texto aqui!');
 
       <Text style={estilos.textoFrase}>{textoFrase}</Text>
 
-      <TouchableOpacity style={estilos.botao} onPress={quebrarBiscoito}>
+      <TouchableOpacity style={[estilos.botao, {marginTop: 15}]} onPress={quebrarBiscoito}>
         <Text style={estilos.btnTexto}>Abrir Biscoito</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={[estilos.botao, {marginTop: 15}]} onPress={voltarImagem}>
+        <Text style={estilos.btnTexto}>Fechar Biscoito</Text>
       </TouchableOpacity>
 
       {/* Botão para navegar para a tela Sobre */}
@@ -50,6 +71,13 @@ const [textoFrase, setTextoFrase] = useState('Texto aqui!');
         onPress={() => navigation.navigate('Sobre')}
       >
         <Text style={estilos.btnTexto}>Ir para Sobre</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        style={[estilos.botao, { backgroundColor: '#999', marginTop: 15 }]}
+        onPress={() => navigation.navigate('Integrantes')}
+      >
+        <Text style={estilos.btnTexto}>Ir para Integrantes</Text>
       </TouchableOpacity>
     </View>
   );
@@ -80,7 +108,7 @@ const estilos = StyleSheet.create({
     backgroundColor: '#dd7b22',
     borderRadius: 25,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   btnTexto: {
     color: '#fff',
