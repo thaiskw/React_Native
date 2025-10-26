@@ -24,7 +24,7 @@ const estilos = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 20,
+    padding: 21,
   },
   titulo: {
     fontSize: 24,

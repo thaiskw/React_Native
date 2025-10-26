@@ -116,4 +116,3 @@ const estilos = StyleSheet.create({
     fontSize: 16
   }
 });
-
