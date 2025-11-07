@@ -24,6 +24,18 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "eb43c535-cc60-479f-9e0c-2db2ae2b6fe3"
+      }
+    },
+    "owner": "thaikws",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/eb43c535-cc60-479f-9e0c-2db2ae2b6fe3"
     }
   }
 }
